@@ -1,0 +1,1 @@
+This code suffers from a silent failure. If the file cannot be opened for writing, the function returns `true` even though the operation failed.  This is because PHP's `file_put_contents()` returns the number of bytes written, which is 0 if no bytes are written, but the function interprets 0 as `true` in the boolean check.
